@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Scanner with Camera Selection</title>
+    <script src="https://unpkg.com/html5-qrcode/minified/html5-qrcode.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: green;
+        }
+        #qr-reader {
+            width: 100%;
+            height: auto;
+        }
+        .error-message {
+            color: red;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>QR Code Scanner with Camera Selection</h1>
+    <div id="qr-reader" style="width: 100%; height: 300px;"></div>
+    <div id="result">Scan a QR code to see the result here.</div>
+    <div id="error-message" class="error-message"></div>
+
+    <script>
+        const resultDiv = document.getElementById('result');
+        const errorDiv = document.getElementById('error-message');
+        const qrReader = document.getElementById('qr-reader');
+        
+        // Get available cameras
+        Html5Qrcode.getCameras().then(devices => {
+            if (devices && devices.length > 0) {
+                const cameraId = devices[0].id;  // Use the first available camera
+                initializeQRScanner(cameraId);
+            } else {
+                errorDiv.innerText = "No cameras found.";
+            }
+        }).catch(err => {
+            console.error("Error accessing cameras: ", err);
+            errorDiv.innerText = "Failed to access cameras. Please check permissions.";
+        });
+
+        // Initialize the QR scanner with the selected camera
+        function initializeQRScanner(cameraId) {
+            const html5QrCode = new Html5Qrcode("qr-reader");
+
+            html5QrCode.start(
+                cameraId,
+                {
+                    fps: 10,    // Optional: frame per second for QR code scanning
+                    qrbox: { width: 250, height: 250 }  // Optional: size of scanning box
+                },
+                (decodedText, decodedResult) => {
+                    resultDiv.innerText = `Scanned Result: ${decodedText}`;
+                },
+                (errorMessage) => {
+                    console.warn(`Error while scanning QR code: ${errorMessage}`);
+                }
+            ).catch(err => {
+                console.error("Error starting QR scanner: ", err);
+                errorDiv.innerText = "Failed to start QR code scanner. Please try again.";
+            });
+        }
+    </script>
+</body>
+</html>

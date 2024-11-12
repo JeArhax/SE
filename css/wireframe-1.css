@@ -1,0 +1,153 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the body takes at least the full height of the viewport */
+    background-color: #f2f2f2; /* Light gray background */
+}
+
+/* Header Section */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1a3a5e; /* Dark blue background */
+    padding: 15px 20px; /* Added padding for better spacing */
+    width: 100%; /* Full width */
+    color: #fff; /* White text color */
+}
+
+/* Logo styles */
+.logo {
+    padding-left: 10px;
+}
+
+.logo-icon {
+    width: 40px; /* Logo width */
+    height: 40px; /* Logo height */
+}
+
+/* Navbar with dropdown */
+.navbar {
+    position: relative;
+    margin-right: 10px;
+}
+
+.nav-dropdown {
+    background-color: #333; /* Dark background for button */
+    color: #fff; /* White text color */
+    border: none; /* No border */
+    padding: 10px 15px; /* Adjusted padding */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.dropdown-content {
+    display: none; /* Hidden by default */
+    position: absolute; /* Positioning for dropdown */
+    right: 0; /* Align dropdown to the right */
+    background-color: #fff; /* White background for dropdown */
+    color: #333; /* Dark text color */
+    min-width: 120px; /* Minimum width of dropdown */
+    border: 1px solid #ccc; /* Border for dropdown */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for dropdown */
+    z-index: 1; /* Ensure dropdown is above other content */
+}
+
+.dropdown-content a {
+    color: #333; /* Dark text color for links */
+    padding: 10px; /* Padding for links */
+    text-decoration: none; /* No underline */
+    display: block; /* Block display for links */
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd; /* Light gray background on hover */
+}
+
+/* Show dropdown on hover */
+.navbar:hover .dropdown-content {
+    display: block; /* Show dropdown on hover */
+}
+
+/* Main Content Section */
+.main-content {
+    display: flex; /* Use flexbox for main content */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center items horizontally */
+    width: 100%; /* Full width */
+    max-width: 900px; /* Optional: Set a max width for better layout */
+    text-align: center; /* Center text */
+    margin: 20px auto; /* Center the main content horizontally with margin */
+    padding: 20px; /* Add padding for spacing */
+}
+
+.title {
+    margin: 20px; /* Space below the title */
+}
+
+.info-box {
+    display: flex; /* Use flexbox for info box */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center items horizontally */
+    width: 100%; /* Full width for info box */
+    max-width: 1350px; /* Optional: Set a max width for better layout */
+    background-color: #726b6b; /* Background color for info box */
+    padding: 20px 30px; /* Padding for info box */
+    border-radius: 10px; /* Rounded corners */
+    color: #fff; /* White text color */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    margin-bottom: 20px; /* Space below the info box */
+}
+
+.image-placeholder {
+    width: 300px; /* Fixed width for image placeholder */
+    height: 200px; /* Fixed height for image placeholder */
+    background-color: #f0f0f0; /* Light gray background for placeholder */
+    margin-top: 0; /* Space above image placeholder */
+    display: flex; /* Use flexbox to center the image */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    border: 1px dashed #ccc; /* Dashed border for placeholder */
+}
+
+.image {
+    max-width: 100%; /* Ensure the image fits within the placeholder */
+    max-height: 100%; /* Ensure the image fits within the placeholder */
+    border-radius: 10px; /* Optional: Rounded corners for the image */
+}
+
+/* Footer Section */
+.footer {
+    display: flex; /* Flexbox for footer */
+    justify-content: center; /* Align items to the center */
+    align-items: center; /* Center items vertically */
+    padding: 20px; /* Padding for footer */
+    background-color: #f1f1f1; /* Light gray background */
+    font-size: 14px; /* Font size for footer text */
+    width: 100%; /* Full width for footer */
+}
+
+.footer .icons {
+    display: flex; /* Flexbox for icons */
+    margin-right: 10px; /* Space between icons and text */
+}
+
+.footer .footer-icon {
+    width: 20px; /* Width for footer icons */
+    height: 20px; /* Height for footer icons */
+    margin-right: 5px; /* Space between icons */
+}
+
+.footer p {
+    margin-left: 10px; /* Space between icons and text */
+}

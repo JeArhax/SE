@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="../css/signup.css"> <!-- Adjust the path if necessary -->
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="path/to/logo.png" alt="Logo" class="logo-icon"> <!-- Adjust the path to your logo -->
+        </div>
+        <div class="navbar">
+            <button class="nav-dropdown">Menu</button>
+            <div class="dropdown-content">
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="info-box">
+            <h2 class="title">Sign Up</h2>
+            <form action="signup.php" method="post">
+                <div class="info-row">
+                    <label for="fullname">Full Name</label>
+                    <input type="text" id="fullname" name="fullname" required>
+                </div>
+                <div class="info-row">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="info-row">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="info-row">
+                    <label for="repeat-password">Repeat Password</label>
+                    <input type="password" id="repeat-password" name="repeat-password" required>
+                </div>
+                <div class="info-row">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" name="age" required>
+                </div>
+                <div class="info-row">
+                    <label for="address">Address</label>
+                    <input type="text" id="address" name="address" required>
+                </div>
+                <div class="info-row">
+                    <label for="gender">Gender</label>
+                    <select id="gender" name="gender" required>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="info-row">
+                    <label for="status">Status</label>
+                    <select id="status" name="status" required>
+                        <option value="student">Student</option>
+                        <option value="working">Working</option>
+                    </select>
+                </div>
+                <div class="info-row">
+                    <label for="residency">Residency</label>
+                    <select id="residency" name="residency" required >
+                        <option value="resident">Resident</option>
+                        <option value="non-resident">Non-Resident</option>
+                    </select>
+                </div>
+                <div class="info-footer">
+                    <button type="submit" class="btn signup"><a href="../wireframes/wireframe-8.php">Sign up</a></button>
+                </div>
+            </form>
+            <p>Already have an account? <a href="../login/login.html">Login here</a></p>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="icons">
+            <img src="path/to/icon1.png" alt="Icon 1" class="footer-icon"> <!-- Adjust the path to your icons -->
+            <img src="path/to/icon2.png" alt="Icon 2" class="footer-icon">
+        </div>
+        <p>&copy; 2023 Your Company. All rights reserved.</p>
+    </div>
+</body>
+</html>

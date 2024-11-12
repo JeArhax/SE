@@ -1,0 +1,167 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+}
+
+/* Header Section */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1a3a5e;
+    padding: 15px 20px; /* Added padding for better spacing */
+    width: 100%;
+    color: #fff;
+}
+
+.logo {
+    padding-left: 10px;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+}
+
+/* Navbar with dropdown */
+.navbar {
+    position: relative;
+    margin-right: 10px;
+}
+
+.nav-dropdown {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 15px; /* Adjusted padding */
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #fff;
+    color: #333;
+    min-width: 120px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Show dropdown on hover */
+.navbar:hover .dropdown-content {
+    display: block;
+}
+
+/* Main Content Section */
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    flex-grow: 1;
+}
+
+.info-box {
+    width: 500px;
+    background-color: #726b6b;
+    padding: 30px; /* Increased padding for better spacing */
+    border-radius: 10px;
+    color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Added shadow for depth */
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; /* Increased margin for better spacing */
+}
+
+.info-row label {
+    width: 150px; /* Fixed width for labels */
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.info-row input[type="text"],
+.info-row input[type="email"],
+.info-row input[type="password"],
+.info-row input[type="number"],
+.info-row select {
+    flex: 1; /* Allow input fields to take the remaining space */
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #b5b5b5;
+    color: #333;
+}
+
+.info-footer {
+    display: flex;
+    justify-content: flex-end; /* Align button to the right */
+    padding-top: 20px;
+}
+
+.info-footer .btn {
+    padding: 10px 20px; /* Added padding for button */
+    background-color: #1a3a5e; /* Button color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.info-footer .btn:hover {
+    background-color: #0f2a4d; /* Darker shade on hover */
+}
+
+/* Footer Section */
+.footer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    background-color: #f1f1f1;
+    font-size: 14px;
+    width: 100%;
+}
+
+.footer .icons {
+    display: flex;
+    margin-right: 10px;
+}
+
+.footer .footer-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.footer p {
+    margin-left: 10px;
+}
