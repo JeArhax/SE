@@ -25,11 +25,16 @@
             color: red;
             font-size: 1.2em;
         }
+        .loading-message {
+            font-size: 1.2em;
+            color: blue;
+        }
     </style>
 </head>
 <body>
     <h1>QR Code Scanner with Camera Selection</h1>
     <button id="startButton">Open Camera</button>  <!-- Button to open the camera -->
+    <div id="loadingMessage" class="loading-message" style="display: none;">Initializing camera...</div> <!-- Loading message -->
     <div id="qr-reader" style="width: 100%; height: 300px;"></div>
     <div id="result">Scan a QR code to see the result here.</div>
     <div id="error-message" class="error-message"></div>
@@ -39,6 +44,7 @@
         const errorDiv = document.getElementById('error-message');
         const qrReader = document.getElementById('qr-reader');
         const startButton = document.getElementById('startButton');
+        const loadingMessage = document.getElementById('loadingMessage');
         let html5QrCode;
 
         // Function to initialize and start the camera
@@ -60,6 +66,8 @@
             ).catch(err => {
                 console.error("Error starting QR scanner: ", err);
                 errorDiv.innerText = "Failed to start QR code scanner. Please try again.";
+            }).finally(() => {
+                loadingMessage.style.display = 'none';  // Hide loading message once camera is ready
             });
         }
 
@@ -68,6 +76,7 @@
             if (devices && devices.length > 0) {
                 const cameraId = devices[0].id;  // Use the first available camera
                 startButton.addEventListener('click', () => {
+                    loadingMessage.style.display = 'block';  // Show loading message
                     qrReader.style.display = 'block';  // Show the QR reader
                     startCamera(cameraId);
                 });
