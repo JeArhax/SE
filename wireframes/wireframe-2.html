@@ -18,7 +18,8 @@
         }
         #qr-reader {
             width: 100%;
-            height: auto;
+            height: 300px;
+            display: none; /* Hide the QR reader initially */
         }
         .error-message {
             color: red;
@@ -28,6 +29,7 @@
 </head>
 <body>
     <h1>QR Code Scanner with Camera Selection</h1>
+    <button id="startButton">Open Camera</button>  <!-- Button to open the camera -->
     <div id="qr-reader" style="width: 100%; height: 300px;"></div>
     <div id="result">Scan a QR code to see the result here.</div>
     <div id="error-message" class="error-message"></div>
@@ -36,23 +38,12 @@
         const resultDiv = document.getElementById('result');
         const errorDiv = document.getElementById('error-message');
         const qrReader = document.getElementById('qr-reader');
-        
-        // Get available cameras
-        Html5Qrcode.getCameras().then(devices => {
-            if (devices && devices.length > 0) {
-                const cameraId = devices[0].id;  // Use the first available camera
-                initializeQRScanner(cameraId);
-            } else {
-                errorDiv.innerText = "No cameras found.";
-            }
-        }).catch(err => {
-            console.error("Error accessing cameras: ", err);
-            errorDiv.innerText = "Failed to access cameras. Please check permissions.";
-        });
+        const startButton = document.getElementById('startButton');
+        let html5QrCode;
 
-        // Initialize the QR scanner with the selected camera
-        function initializeQRScanner(cameraId) {
-            const html5QrCode = new Html5Qrcode("qr-reader");
+        // Function to initialize and start the camera
+        function startCamera(cameraId) {
+            html5QrCode = new Html5Qrcode("qr-reader");
 
             html5QrCode.start(
                 cameraId,
@@ -71,6 +62,22 @@
                 errorDiv.innerText = "Failed to start QR code scanner. Please try again.";
             });
         }
+
+        // Get available cameras when the page loads
+        Html5Qrcode.getCameras().then(devices => {
+            if (devices && devices.length > 0) {
+                const cameraId = devices[0].id;  // Use the first available camera
+                startButton.addEventListener('click', () => {
+                    qrReader.style.display = 'block';  // Show the QR reader
+                    startCamera(cameraId);
+                });
+            } else {
+                errorDiv.innerText = "No cameras found.";
+            }
+        }).catch(err => {
+            console.error("Error accessing cameras: ", err);
+            errorDiv.innerText = "Failed to access cameras. Please check permissions.";
+        });
     </script>
 </body>
 </html>
